@@ -5,6 +5,7 @@
 
 int main(int argc, char ** argv)
 {
+    rclcpp::init(argc, argv);
     QApplication app(argc, argv);
 
     QPalette darkPalette;
@@ -31,5 +32,7 @@ int main(int argc, char ** argv)
     w.show();
 
     return app.exec();
+
+    rclcpp::shutdown();
  
 }
