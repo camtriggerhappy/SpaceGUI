@@ -1,3 +1,6 @@
 /.vscode
 src/build/*
 src/build*
+src/log/*
+build/*
+log/*

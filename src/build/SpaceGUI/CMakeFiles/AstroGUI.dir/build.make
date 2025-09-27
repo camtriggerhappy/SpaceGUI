@@ -69,10 +69,24 @@ include CMakeFiles/AstroGUI.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/AstroGUI.dir/flags.make
 
+CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o: CMakeFiles/AstroGUI.dir/flags.make
+CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o: AstroGUI_autogen/mocs_compilation.cpp
+CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o: CMakeFiles/AstroGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o -MF CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o -c /home/cameron/SpaceGUI/src/build/SpaceGUI/AstroGUI_autogen/mocs_compilation.cpp
+
+CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cameron/SpaceGUI/src/build/SpaceGUI/AstroGUI_autogen/mocs_compilation.cpp > CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.i
+
+CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cameron/SpaceGUI/src/build/SpaceGUI/AstroGUI_autogen/mocs_compilation.cpp -o CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.s
+
 CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o: CMakeFiles/AstroGUI.dir/flags.make
 CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o: /home/cameron/SpaceGUI/src/SpaceGUI/src/AstroGUI.cpp
 CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o: CMakeFiles/AstroGUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o -MF CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o.d -o CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o -c /home/cameron/SpaceGUI/src/SpaceGUI/src/AstroGUI.cpp
 
 CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.i: cmake_force
@@ -83,14 +97,32 @@ CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cameron/SpaceGUI/src/SpaceGUI/src/AstroGUI.cpp -o CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.s
 
+CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o: CMakeFiles/AstroGUI.dir/flags.make
+CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o: /home/cameron/SpaceGUI/src/SpaceGUI/src/mainwindow.cpp
+CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o: CMakeFiles/AstroGUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o -MF CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o.d -o CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o -c /home/cameron/SpaceGUI/src/SpaceGUI/src/mainwindow.cpp
+
+CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cameron/SpaceGUI/src/SpaceGUI/src/mainwindow.cpp > CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.i
+
+CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cameron/SpaceGUI/src/SpaceGUI/src/mainwindow.cpp -o CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.s
+
 # Object files for target AstroGUI
 AstroGUI_OBJECTS = \
-"CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o"
+"CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o" \
+"CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o" \
+"CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o"
 
 # External object files for target AstroGUI
 AstroGUI_EXTERNAL_OBJECTS =
 
+AstroGUI: CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o
 AstroGUI: CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o
+AstroGUI: CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o
 AstroGUI: CMakeFiles/AstroGUI.dir/build.make
 AstroGUI: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.2.4
 AstroGUI: /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.2.4
@@ -98,7 +130,7 @@ AstroGUI: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4
 AstroGUI: /usr/lib/x86_64-linux-gnu/libGLX.so
 AstroGUI: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 AstroGUI: CMakeFiles/AstroGUI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable AstroGUI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable AstroGUI"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AstroGUI.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

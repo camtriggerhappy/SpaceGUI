@@ -809,6 +809,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "ament_cmake_core/SpaceGUIConfig.cmake"
   "ament_cmake_core/stamps/nameConfig-version.cmake.in.stamp"
   "ament_cmake_core/SpaceGUIConfig-version.cmake"
+  "CMakeFiles/AstroGUI_autogen.dir/AutogenInfo.json"
   "ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/SpaceGUI"
   "ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/SpaceGUI"
   "ament_cmake_index/share/ament_index/resource_index/packages/SpaceGUI"
@@ -820,4 +821,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/uninstall.dir/DependInfo.cmake"
   "CMakeFiles/SpaceGUI_uninstall.dir/DependInfo.cmake"
   "CMakeFiles/AstroGUI.dir/DependInfo.cmake"
+  "CMakeFiles/AstroGUI_autogen.dir/DependInfo.cmake"
   )
