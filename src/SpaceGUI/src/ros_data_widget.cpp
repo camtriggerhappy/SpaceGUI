@@ -1,41 +1,37 @@
-// ros_data_widget.cpp
 #include "ros_data_widget.hpp"
-#include <QDebug>
 
-// Example: image visualizer
-#include <QLabel>
-#include <QPixmap>
-
-RosDataWidget::RosDataWidget(const QString &topicType, QWidget *parent)
+RosDataWidget::RosDataWidget(const QString &title, QWidget *parent)
     : QWidget(parent)
 {
-    setFixedSize(200, 150); // default size
+    setFixedSize(320, 240);
     setStyleSheet("background: white; border: 1px solid black;");
 
     layout = new QVBoxLayout(this);
-    QWidget *visualizer = createVisualizer(topicType);
-    if (visualizer)
-        layout->addWidget(visualizer);
+    layout->setContentsMargins(2, 2, 2, 2);
+
+    titleLabel = new QLabel(title);
+    titleLabel->setAlignment(Qt::AlignCenter);
+    titleLabel->setStyleSheet("background: #444; color: white;");
+    layout->addWidget(titleLabel);
 }
 
-QWidget *RosDataWidget::createVisualizer(const QString &topicType)
-{
-    if (topicType == "sensor_msgs/msg/Image") {
-        // Placeholder image visualizer
-        QLabel *img = new QLabel("Image Viewer");
-        img->setAlignment(Qt::AlignCenter);
-        img->setStyleSheet("background: black; color: white;");
-        img->setMinimumSize(180, 120);
-        return img;
+void RosDataWidget::setContent(QWidget *content) {
+    if (contentWidget) {
+        layout->removeWidget(contentWidget);
+        contentWidget->deleteLater();
     }
-    else if (topicType == "sensor_msgs/msg/Joy") {
-        QLabel *joy = new QLabel("Joystick Data");
-        joy->setAlignment(Qt::AlignCenter);
-        return joy;
+    contentWidget = content;
+    if (contentWidget) {
+        layout->addWidget(contentWidget, 1);
     }
-    else {
-        QLabel *fallback = new QLabel("Unsupported type:\n" + topicType);
-        fallback->setAlignment(Qt::AlignCenter);
-        return fallback;
+}
+
+void RosDataWidget::mousePressEvent(QMouseEvent *event) {
+    dragStart = event->pos();
+}
+
+void RosDataWidget::mouseMoveEvent(QMouseEvent *event) {
+    if (event->buttons() & Qt::LeftButton) {
+        move(mapToParent(event->pos() - dragStart));
     }
 }

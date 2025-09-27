@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include "visualizer_base.hpp"
 #include "visualizer_factory.hpp"
+#include "visualizer_template.hpp"
+#include "sensor_msgs/msg/image.hpp"
+#include "image_visualizer.hpp"
 
 #include <QMenu>
 #include <QAction>
@@ -10,7 +13,6 @@
 #include <QEvent>
 #include <QResizeEvent>
 #include <QMouseEvent>
-
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
                                           ui(new Ui::MainWindow)
@@ -100,7 +102,8 @@ void MainWindow::add_topic_list_to_menu(
     QMenu *menu,
     const std::vector<std::pair<std::string, std::string>> &topics)
 {
-    if (!menu) return;
+    if (!menu)
+        return;
     menu->clear();
 
     for (const auto &topic : topics)
@@ -111,25 +114,24 @@ void MainWindow::add_topic_list_to_menu(
         menu->addAction(action);
 
         // Create a widget when this action is triggered
-        connect(action, &QAction::triggered, this, [this, topic]() {
-            RosDataWidget *widget = new RosDataWidget(
-                QString::fromStdString(topic.second),  // type
-                floatingArea);                         // parent is floating area
+        connect(action, &QAction::triggered, this, [this, topic]()
+                {
+    RosDataWidget *container = new RosDataWidget(QString::fromStdString(topic.first), floatingArea);
 
-            // Position widget with a simple offset so they don’t all overlap
-            int offset = static_cast<int>(ros_widgets.size()) * 30;
-            widget->move(20 + offset, 20 + offset);
+    if (QString::fromStdString(topic.second).contains("Image")) {
+        ImageVisualizer *visualizer = new ImageVisualizer(container);
+        container->setContent(visualizer);
+    } else {
+        QLabel *label = new QLabel("Unsupported type: " + QString::fromStdString(topic.second));
+        label->setAlignment(Qt::AlignCenter);
+        container->setContent(label);
+    }
 
-            widget->show();
-            widget->raise();
-
-            ros_widgets.push_back(widget);
-
-            qDebug() << "Created widget for topic:" << QString::fromStdString(topic.first);
-        });
+    container->move(50, 50);
+    container->show();
+    ros_widgets.push_back(container); });
     }
 }
-
 
 MainWindow::~MainWindow()
 {

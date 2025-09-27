@@ -1,23 +1,24 @@
-// ros_data_widget.hpp
-#ifndef ROS_DATA_WIDGET_HPP
-#define ROS_DATA_WIDGET_HPP
+#pragma once
 
 #include <QWidget>
-#include <QLabel>
 #include <QVBoxLayout>
-#include <QString>
+#include <QMouseEvent>
+#include <QLabel>
 
-class RosDataWidget : public QWidget
-{
+class RosDataWidget : public QWidget {
     Q_OBJECT
-
 public:
-    explicit RosDataWidget(const QString &topicType, QWidget *parent = nullptr);
+    explicit RosDataWidget(const QString &title, QWidget *parent = nullptr);
+
+    void setContent(QWidget *content);
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
 private:
-    QWidget *createVisualizer(const QString &topicType);
-
-    QVBoxLayout *layout;
+    QPoint dragStart;
+    QLabel *titleLabel {nullptr};
+    QWidget *contentWidget {nullptr};
+    QVBoxLayout *layout {nullptr};
 };
-
-#endif // ROS_DATA_WIDGET_HPP
