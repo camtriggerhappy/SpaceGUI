@@ -27,7 +27,9 @@ int main(int argc, char ** argv)
     QWidget window;
     MainWindow w;    
     
-    w.show_robot_status();
+    w.show_left_controller();
+    w.show_right_controller();
+    w.populate_top_menu();
 
     w.show();
 

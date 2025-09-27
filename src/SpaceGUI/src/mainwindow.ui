@@ -14,18 +14,34 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTextEdit" name="robotStatusLabel">
+   <property name="minimumSize">
+    <size>
+     <width>600</width>
+     <height>600</height>
+    </size>
+   </property>
+   <widget class="QTextEdit" name="controllerLeft">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>20</y>
+      <x>10</x>
+      <y>270</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="controllerRight">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>270</y>
       <width>261</width>
       <height>31</height>
      </rect>
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QMenuBar" name="TopMenu">
    <property name="geometry">
     <rect>
      <x>0</x>

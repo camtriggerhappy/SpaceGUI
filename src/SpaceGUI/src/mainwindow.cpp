@@ -1,29 +1,128 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
-
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
+                                          ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    floatingArea = new QWidget(ui->centralwidget);
+    floatingArea->setAttribute(Qt::WA_TransparentForMouseEvents, false); // children receive events
+    floatingArea->setAttribute(Qt::WA_StyledBackground, true);
+    floatingArea->setStyleSheet("background: transparent;"); // visually transparent  
+      floatingArea->setGeometry(ui->centralwidget->rect());
+    floatingArea->raise(); // keep on top
+    floatingArea->show();
+
+    // Size and position the floatingArea to match centralWidget
+    ui->centralwidget->installEventFilter(this);
+
+    QWidget *dbg = new QWidget(floatingArea);
+    dbg->setStyleSheet("background: rgba(255,0,0,0.25); border: 1px solid red;");
+    dbg->setGeometry(10,10,120,60);
+    dbg->show();
+
+
+
+
 }
 
-void MainWindow::show_robot_status()
+void MainWindow::show_left_controller()
 {
     controller_reader = std::make_shared<JoystickReader>();
-    ros_thread = std::make_unique<RosExecutorThread>(controller_reader);
-    ros_thread->start();
+    ros_threads.push_back(std::make_unique<RosExecutorThread>(controller_reader));
+    ros_threads.back()->start();
 
-connect(controller_reader.get(), &JoystickReader::statusChanged, this,
-        [this](const QString &status) {
-            ui->robotStatusLabel->setText(status);
-        });
+    connect(controller_reader.get(), &JoystickReader::statusChanged, this,
+            [this](const QString &status)
+            {
+                ui->controllerLeft->setText(status);
+            });
 }
+
+void MainWindow::show_right_controller()
+{
+    controller_reader = std::make_shared<JoystickReader>("/right_joy");
+    ros_threads.push_back(std::make_unique<RosExecutorThread>(controller_reader));
+    ros_threads.back()->start();
+
+    connect(controller_reader.get(), &JoystickReader::statusChanged, this,
+            [this](const QString &status)
+            {
+                ui->controllerRight->setText(status);
+            });
+}
+
+bool MainWindow::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == ui->centralwidget) {
+        if (event->type() == QEvent::Resize || event->type() == QEvent::Show) {
+            const QSize s = ui->centralwidget->size();
+            floatingArea->setGeometry(0, 0, s.width(), s.height());
+            floatingArea->raise();
+            return false; // allow normal processing
+        }
+    }
+    return QMainWindow::eventFilter(watched, event);
+}
+
+void MainWindow::populate_top_menu()
+{
+    menu_options.push_back(std::make_shared<QMenu>(tr("Main Menu")));
+    menu_options.push_back(std::make_shared<QMenu>(tr("autonomy mission")));
+    menu_options.push_back(std::make_shared<QMenu>(tr("add Topic")));
+    topic_reader = std::make_shared<TopicReader>();
+    topic_reader_thread = std::make_shared<RosExecutorThread>(topic_reader);
+    topic_reader_thread->start();
+
+    for (auto &item : menu_options)
+    {
+        menuBar()->addMenu(item.get());
+    }
+
+    connect(topic_reader.get(), &TopicReader::dataReady, this,
+            [this](const std::vector<std::pair<std::string, std::string>> &topics)
+            {
+                add_topic_list_to_menu(menu_options[2].get(), topics);
+            });
+}
+
+void MainWindow::add_topic_list_to_menu(QMenu* menu,
+                                        const std::vector<std::pair<std::string, std::string>>& topics)
+{
+    menu->clear();
+
+    for (const auto& topic : topics) {
+        QString label = QString::fromStdString(topic.first + " (" + topic.second + ")");
+        QAction* action = new QAction(label, menu);
+        menu->addAction(action);
+
+        connect(action, &QAction::triggered, this, [this, topic]() {
+            // Parent to floatingArea so layouted widgets remain unaffected
+            RosDataWidget *widget = new RosDataWidget(QString::fromStdString(topic.second), floatingArea);
+
+            // Choose an initial position inside the floatingArea
+            int offset = static_cast<int>(ros_widgets.size()) * 30;
+            widget->move(20 + offset, 20 + offset);
+
+            widget->show();
+            widget->raise(); // ensure it sits above any other children
+
+            // Keep reference so it doesn't get garbage collected (and for later manipulation)
+            ros_widgets.push_back(widget);
+            qDebug() << "Created widget; parent:" << widget->parent()
+         << " widget->geometry:" << widget->geometry()
+         << " widget->isVisible():" << widget->isVisible()
+         << " floatingArea->geometry:" << floatingArea->geometry()
+         << " centralwidget->geometry:" << ui->centralwidget->geometry();
+
+            qDebug() << "Created widget for topic:" << QString::fromStdString(topic.second);
+        });
+    }
+}
+
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-

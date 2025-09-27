@@ -20,6 +20,8 @@ add_executable(AstroGUI
   src/nodes/controller_read.cpp
   src/ros_executor_thread.cpp
   src/mainwindow.ui
+  src/nodes/topic_read.cpp
+  src/ros_data_widget.cpp
 )
 
 target_include_directories(AstroGUI PUBLIC
