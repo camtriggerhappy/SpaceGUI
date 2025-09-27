@@ -22,6 +22,7 @@ protected:
     void mouseMoveEvent(QMouseEvent* event) override;
 
 private:
+    std::unique_ptr<rclcpp::Node> data_node;
     QString m_dataText;
     QPoint m_dragStartPos;
     QLabel *m_label = nullptr;
