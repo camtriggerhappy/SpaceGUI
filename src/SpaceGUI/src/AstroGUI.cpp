@@ -1,10 +1,14 @@
 #include <cstdio>
+#include <QtWidgets>
 
 int main(int argc, char ** argv)
 {
-  (void) argc;
-  (void) argv;
-
-  printf("hello world SpaceGUI package\n");
-  return 0;
+    QApplication app(argc, argv);
+    QWidget window;
+    window.resize(320, 240);
+    window.show();
+    window.setWindowTitle(
+        QApplication::translate("toplevel", "Top-level widget"));
+    return app.exec();
+ 
 }
