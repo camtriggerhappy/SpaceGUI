@@ -1,5 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "visualizer_base.hpp"
+#include "visualizer_factory.hpp"
+
+#include <QMenu>
+#include <QAction>
+#include <QMessageBox>
+#include <QDebug>
+#include <QEvent>
+#include <QResizeEvent>
+#include <QMouseEvent>
+
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
                                           ui(new Ui::MainWindow)
@@ -9,8 +20,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     floatingArea = new QWidget(ui->centralwidget);
     floatingArea->setAttribute(Qt::WA_TransparentForMouseEvents, false); // children receive events
     floatingArea->setAttribute(Qt::WA_StyledBackground, true);
-    floatingArea->setStyleSheet("background: transparent;"); // visually transparent  
-      floatingArea->setGeometry(ui->centralwidget->rect());
+    floatingArea->setStyleSheet("background: transparent;"); // visually transparent
+    floatingArea->setGeometry(ui->centralwidget->rect());
     floatingArea->raise(); // keep on top
     floatingArea->show();
 
@@ -19,12 +30,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
 
     QWidget *dbg = new QWidget(floatingArea);
     dbg->setStyleSheet("background: rgba(255,0,0,0.25); border: 1px solid red;");
-    dbg->setGeometry(10,10,120,60);
+    dbg->setGeometry(10, 10, 120, 60);
     dbg->show();
-
-
-
-
 }
 
 void MainWindow::show_left_controller()
@@ -55,8 +62,10 @@ void MainWindow::show_right_controller()
 
 bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 {
-    if (watched == ui->centralwidget) {
-        if (event->type() == QEvent::Resize || event->type() == QEvent::Show) {
+    if (watched == ui->centralwidget)
+    {
+        if (event->type() == QEvent::Resize || event->type() == QEvent::Show)
+        {
             const QSize s = ui->centralwidget->size();
             floatingArea->setGeometry(0, 0, s.width(), s.height());
             floatingArea->raise();
@@ -87,36 +96,36 @@ void MainWindow::populate_top_menu()
             });
 }
 
-void MainWindow::add_topic_list_to_menu(QMenu* menu,
-                                        const std::vector<std::pair<std::string, std::string>>& topics)
+void MainWindow::add_topic_list_to_menu(
+    QMenu *menu,
+    const std::vector<std::pair<std::string, std::string>> &topics)
 {
+    if (!menu) return;
     menu->clear();
 
-    for (const auto& topic : topics) {
+    for (const auto &topic : topics)
+    {
+        // Label e.g. "/camera/image (sensor_msgs/msg/Image)"
         QString label = QString::fromStdString(topic.first + " (" + topic.second + ")");
-        QAction* action = new QAction(label, menu);
+        QAction *action = new QAction(label, menu);
         menu->addAction(action);
 
+        // Create a widget when this action is triggered
         connect(action, &QAction::triggered, this, [this, topic]() {
-            // Parent to floatingArea so layouted widgets remain unaffected
-            RosDataWidget *widget = new RosDataWidget(QString::fromStdString(topic.second), floatingArea);
+            RosDataWidget *widget = new RosDataWidget(
+                QString::fromStdString(topic.second),  // type
+                floatingArea);                         // parent is floating area
 
-            // Choose an initial position inside the floatingArea
+            // Position widget with a simple offset so they don’t all overlap
             int offset = static_cast<int>(ros_widgets.size()) * 30;
             widget->move(20 + offset, 20 + offset);
 
             widget->show();
-            widget->raise(); // ensure it sits above any other children
+            widget->raise();
 
-            // Keep reference so it doesn't get garbage collected (and for later manipulation)
             ros_widgets.push_back(widget);
-            qDebug() << "Created widget; parent:" << widget->parent()
-         << " widget->geometry:" << widget->geometry()
-         << " widget->isVisible():" << widget->isVisible()
-         << " floatingArea->geometry:" << floatingArea->geometry()
-         << " centralwidget->geometry:" << ui->centralwidget->geometry();
 
-            qDebug() << "Created widget for topic:" << QString::fromStdString(topic.second);
+            qDebug() << "Created widget for topic:" << QString::fromStdString(topic.first);
         });
     }
 }

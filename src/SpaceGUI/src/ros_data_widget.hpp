@@ -1,29 +1,23 @@
-#pragma once
+// ros_data_widget.hpp
+#ifndef ROS_DATA_WIDGET_HPP
+#define ROS_DATA_WIDGET_HPP
 
 #include <QWidget>
+#include <QLabel>
+#include <QVBoxLayout>
 #include <QString>
-#include <QPoint>
-
-class QLabel;
 
 class RosDataWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit RosDataWidget(const QString &dataText = QString(), QWidget *parent = nullptr);
-
-    QString dataText() const { return m_dataText; }
-    void setDataText(const QString &text);     // updates the visible label
-    void setFixedWidgetSize(const QSize &s);   // optional helper to change size
-
-protected:
-    void mousePressEvent(QMouseEvent* event) override;
-    void mouseMoveEvent(QMouseEvent* event) override;
+    explicit RosDataWidget(const QString &topicType, QWidget *parent = nullptr);
 
 private:
-    std::unique_ptr<rclcpp::Node> data_node;
-    QString m_dataText;
-    QPoint m_dragStartPos;
-    QLabel *m_label = nullptr;
+    QWidget *createVisualizer(const QString &topicType);
+
+    QVBoxLayout *layout;
 };
+
+#endif // ROS_DATA_WIDGET_HPP

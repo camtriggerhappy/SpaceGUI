@@ -22,6 +22,9 @@ add_executable(AstroGUI
   src/mainwindow.ui
   src/nodes/topic_read.cpp
   src/ros_data_widget.cpp
+  src/image_visualizer.cpp
+  src/visualizer_base.cpp
+  
 )
 
 target_include_directories(AstroGUI PUBLIC
