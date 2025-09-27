@@ -1019,4 +1019,13 @@ CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidgetaction.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwizard.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsversion.h
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsversion.h \
+ /home/cameron/SpaceGUI/src/SpaceGUI/src/mainwindow.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
+ /home/cameron/SpaceGUI/src/build/SpaceGUI/AstroGUI_autogen/include/ui_mainwindow.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMenuBar \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStatusBar \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget

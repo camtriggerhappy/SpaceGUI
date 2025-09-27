@@ -210,6 +210,43 @@ AstroGUI/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/build
 .PHONY : AstroGUI/fast
 
+#=============================================================================
+# Target rules for targets named AstroGUI_autogen
+
+# Build rule for target.
+AstroGUI_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AstroGUI_autogen
+.PHONY : AstroGUI_autogen
+
+# fast build rule for target.
+AstroGUI_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI_autogen.dir/build.make CMakeFiles/AstroGUI_autogen.dir/build
+.PHONY : AstroGUI_autogen/fast
+
+AstroGUI_autogen/mocs_compilation.o: AstroGUI_autogen/mocs_compilation.cpp.o
+.PHONY : AstroGUI_autogen/mocs_compilation.o
+
+# target to build an object file
+AstroGUI_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o
+.PHONY : AstroGUI_autogen/mocs_compilation.cpp.o
+
+AstroGUI_autogen/mocs_compilation.i: AstroGUI_autogen/mocs_compilation.cpp.i
+.PHONY : AstroGUI_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+AstroGUI_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.i
+.PHONY : AstroGUI_autogen/mocs_compilation.cpp.i
+
+AstroGUI_autogen/mocs_compilation.s: AstroGUI_autogen/mocs_compilation.cpp.s
+.PHONY : AstroGUI_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+AstroGUI_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.s
+.PHONY : AstroGUI_autogen/mocs_compilation.cpp.s
+
 src/AstroGUI.o: src/AstroGUI.cpp.o
 .PHONY : src/AstroGUI.o
 
@@ -234,6 +271,30 @@ src/AstroGUI.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.s
 .PHONY : src/AstroGUI.cpp.s
 
+src/mainwindow.o: src/mainwindow.cpp.o
+.PHONY : src/mainwindow.o
+
+# target to build an object file
+src/mainwindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o
+.PHONY : src/mainwindow.cpp.o
+
+src/mainwindow.i: src/mainwindow.cpp.i
+.PHONY : src/mainwindow.i
+
+# target to preprocess a source file
+src/mainwindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.i
+.PHONY : src/mainwindow.cpp.i
+
+src/mainwindow.s: src/mainwindow.cpp.s
+.PHONY : src/mainwindow.s
+
+# target to generate assembly for a file
+src/mainwindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.s
+.PHONY : src/mainwindow.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -247,12 +308,19 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... AstroGUI_autogen"
 	@echo "... SpaceGUI_uninstall"
 	@echo "... uninstall"
 	@echo "... AstroGUI"
+	@echo "... AstroGUI_autogen/mocs_compilation.o"
+	@echo "... AstroGUI_autogen/mocs_compilation.i"
+	@echo "... AstroGUI_autogen/mocs_compilation.s"
 	@echo "... src/AstroGUI.o"
 	@echo "... src/AstroGUI.i"
 	@echo "... src/AstroGUI.s"
+	@echo "... src/mainwindow.o"
+	@echo "... src/mainwindow.i"
+	@echo "... src/mainwindow.s"
 .PHONY : help
 
 

@@ -14,8 +14,10 @@ find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
-# find_package(<dependency> REQUIRED)
-
+# find_package(<depepndency> REQUIRED)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui)
 
 add_executable(AstroGUI src/AstroGUI.cpp)
@@ -30,6 +32,12 @@ target_include_directories(AstroGUI PUBLIC
   Qt6::Widgets
   Qt6::Gui)
 target_compile_features(AstroGUI PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+target_sources(AstroGUI PRIVATE
+  src/AstroGUI.cpp
+  src/mainwindow.ui
+  src/mainwindow.cpp
+)
 
 install(TARGETS AstroGUI
   DESTINATION lib/${PROJECT_NAME})

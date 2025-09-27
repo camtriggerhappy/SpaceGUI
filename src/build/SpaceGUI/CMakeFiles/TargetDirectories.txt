@@ -8,3 +8,4 @@
 /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/install.dir
 /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/install/local.dir
 /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/install/strip.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/AstroGUI_autogen.dir
