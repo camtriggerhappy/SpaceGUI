@@ -29,6 +29,8 @@ void add_topic_list_to_menu(QMenu *menu, const std::vector<std::pair<std::string
 
 private:
     std::vector<std::shared_ptr<RosExecutorThread>> ros_threads;
+    std::shared_ptr<rclcpp::Node> gui_node_;
+    std::unique_ptr<RosExecutorThread> ros_thread_;
     std::vector<std::shared_ptr<QMenu>> menu_options;
     std::shared_ptr<RosExecutorThread> ros_thread;
     std::shared_ptr<JoystickReader> controller_reader;

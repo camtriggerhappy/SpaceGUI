@@ -30,6 +30,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     // Size and position the floatingArea to match centralWidget
     ui->centralwidget->installEventFilter(this);
 
+    gui_node_ = std::make_shared<rclcpp::Node>("gui_node");
+    ros_thread_ = std::make_unique<RosExecutorThread>(gui_node_);
+    ros_thread_->start();
+
+
     QWidget *dbg = new QWidget(floatingArea);
     dbg->setStyleSheet("background: rgba(255,0,0,0.25); border: 1px solid red;");
     dbg->setGeometry(10, 10, 120, 60);
@@ -119,8 +124,11 @@ void MainWindow::add_topic_list_to_menu(
     RosDataWidget *container = new RosDataWidget(QString::fromStdString(topic.first), floatingArea);
 
     if (QString::fromStdString(topic.second).contains("Image")) {
+
         ImageVisualizer *visualizer = new ImageVisualizer(container);
+        visualizer->subscribe(gui_node_, topic.first);
         container->setContent(visualizer);
+
     } else {
         QLabel *label = new QLabel("Unsupported type: " + QString::fromStdString(topic.second));
         label->setAlignment(Qt::AlignCenter);
