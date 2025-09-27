@@ -1,0 +1,4 @@
+source;share/SpaceGUI/local_setup.bash
+source;share/SpaceGUI/local_setup.dsv
+source;share/SpaceGUI/local_setup.sh
+source;share/SpaceGUI/local_setup.zsh

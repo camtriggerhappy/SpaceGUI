@@ -1,0 +1,10 @@
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/uninstall.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/SpaceGUI_uninstall.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/AstroGUI.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/test.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/edit_cache.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/rebuild_cache.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/list_install_components.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/install.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/install/local.dir
+/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/install/strip.dir

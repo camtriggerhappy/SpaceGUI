@@ -1,0 +1,16 @@
+/home/cameron/SpaceGUI/src/install/SpaceGUI/lib/SpaceGUI/AstroGUI
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/ament_index/resource_index/package_run_dependencies/SpaceGUI
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/ament_index/resource_index/parent_prefix_path/SpaceGUI
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/environment/ament_prefix_path.sh
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/environment/ament_prefix_path.dsv
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/environment/path.sh
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/environment/path.dsv
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/local_setup.bash
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/local_setup.sh
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/local_setup.zsh
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/local_setup.dsv
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/package.dsv
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/ament_index/resource_index/packages/SpaceGUI
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/cmake/SpaceGUIConfig.cmake
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/cmake/SpaceGUIConfig-version.cmake
+/home/cameron/SpaceGUI/src/install/SpaceGUI/share/SpaceGUI/package.xml

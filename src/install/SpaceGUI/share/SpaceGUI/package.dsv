@@ -1,0 +1,8 @@
+source;share/SpaceGUI/hook/cmake_prefix_path.ps1
+source;share/SpaceGUI/hook/cmake_prefix_path.dsv
+source;share/SpaceGUI/hook/cmake_prefix_path.sh
+source;share/SpaceGUI/local_setup.bash
+source;share/SpaceGUI/local_setup.dsv
+source;share/SpaceGUI/local_setup.ps1
+source;share/SpaceGUI/local_setup.sh
+source;share/SpaceGUI/local_setup.zsh
