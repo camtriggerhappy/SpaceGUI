@@ -136,6 +136,7 @@ void MainWindow::add_topic_list_to_menu(
     } });
     }
 }
+// Create and display an image widget for the given topic
 void MainWindow::createImageWidget(const std::string &topic_name)
 {
     auto imageWidget = new MovableWidget(floatingArea);
