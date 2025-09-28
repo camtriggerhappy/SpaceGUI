@@ -12,7 +12,8 @@ find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui)
+find_package(rcl_interfaces REQUIRED)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui PrintSupport)
 
 add_executable(AstroGUI src/autonomywindow.cpp
   src/AstroGUI.cpp
@@ -22,6 +23,12 @@ add_executable(AstroGUI src/autonomywindow.cpp
   src/mainwindow.ui
   src/nodes/topic_read.cpp
   src/nodes/image_read.cpp
+  src/moveable_widget.cpp
+  src/qcustomplot.cpp
+  src/nodes/number_read.cpp
+  src/moveable_numeric_widget.cpp
+  src/moveable_log_widget.cpp
+  src/nodes/log_read.cpp
 )
 
 target_include_directories(AstroGUI PUBLIC
@@ -34,6 +41,7 @@ target_link_libraries(AstroGUI
   Qt6::Core
   Qt6::Widgets
   Qt6::Gui
+  Qt6::PrintSupport
 )
 
 ament_target_dependencies(AstroGUI

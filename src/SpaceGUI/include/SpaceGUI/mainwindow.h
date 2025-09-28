@@ -22,6 +22,10 @@ public:
     void show_right_controller();
     void populate_top_menu();
     bool eventFilter(QObject *watched, QEvent *event) override;
+    void createImageWidget(const std::string &topic_name);
+    void createNumericWidget(const std::string &topic_name);
+    void createLogWidget(const std::string &topic_name);
+
 void add_topic_list_to_menu(QMenu *menu, const std::vector<std::pair<std::string, std::string>> &topics);
 
     ~MainWindow();

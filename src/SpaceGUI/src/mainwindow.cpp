@@ -3,6 +3,11 @@
 #include <rclcpp/rclcpp.hpp>
 #include "sensor_msgs/msg/image.hpp"
 #include "image_read.hpp"
+#include "SpaceGUI/moveable_widget.hpp"
+#include "SpaceGUI/moveable_numeric_widget.hpp"
+#include "SpaceGUI/number_read.hpp"
+#include "SpaceGUI/moveable_log_widget.hpp"
+#include "SpaceGUI/log_read.hpp"
 
 #include <QMenu>
 #include <QLabel>
@@ -30,10 +35,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     // Size and position the floatingArea to match centralWidget
     ui->centralwidget->installEventFilter(this);
 
-    QWidget *dbg = new QWidget(floatingArea);
-    dbg->setStyleSheet("background: rgba(255,0,0,0.25); border: 1px solid red;");
-    dbg->setGeometry(10, 10, 120, 60);
-    dbg->show();
+
 }
 
 void MainWindow::show_left_controller()
@@ -116,30 +118,78 @@ void MainWindow::add_topic_list_to_menu(
         // Create a widget when this action is triggered
         connect(action, &QAction::triggered, this, [this, topic]()
                 {
-                    if (topic.second == "sensor_msgs/msg/Image")
-                    {
-                        QWidget *imageWidget = new QWidget(floatingArea);
-                        imageWidget->setWindowFlags(Qt::Tool); // optional: makes it floating
-                        QVBoxLayout *layout = new QVBoxLayout(imageWidget);
-                        QLabel *label = new QLabel(imageWidget);
-                        label->setMinimumSize(320, 240); // initial size
-                        layout->addWidget(label);
-                        imageWidget->setLayout(layout);
-                        imageWidget->show();
-
-                        auto image_vis = std::make_shared<ImageReader>(topic.first);
-                        ros_threads.push_back(std::make_shared<RosExecutorThread>(image_vis));
-                        ros_threads.back()->start();
-                        connect(image_vis.get(), &ImageReader::imageChanged, this,
-                [label](const QImage &img) {
-                    label->setPixmap(QPixmap::fromImage(img).scaled(label->size(),
-                                                                    Qt::KeepAspectRatio,
-                                                                    Qt::SmoothTransformation));
-                },
-                Qt::QueuedConnection);  // thread-safe
-
-                    } });
+    if (topic.second == "sensor_msgs/msg/Image")
+    {
+        createImageWidget(topic.first);
     }
+    else if (topic.second == "std_msgs/msg/Float64")
+    {
+        createNumericWidget(topic.first);
+    } 
+    else if(topic.second == "rcl_interfaces/msg/Log"){
+        createLogWidget(topic.first);
+    }
+    else
+    {
+        QMessageBox::information(this, "Unsupported Topic Type",
+                                 QString("Topic type '%1' is not supported for widget creation.").arg(QString::fromStdString(topic.second)));
+    } });
+    }
+}
+void MainWindow::createImageWidget(const std::string &topic_name)
+{
+    auto imageWidget = new MovableWidget(floatingArea);
+    imageWidget->setWindowFlags(Qt::Widget);
+
+    auto layout = new QVBoxLayout(imageWidget);
+    auto label = new QLabel(imageWidget);
+    label->setMinimumSize(320, 240);
+    layout->addWidget(label);
+    imageWidget->setLayout(layout);
+    imageWidget->show();
+
+    auto imageReader = std::make_shared<ImageReader>(topic_name);
+    ros_threads.push_back(std::make_shared<RosExecutorThread>(imageReader));
+    ros_threads.back()->start();
+
+    connect(imageReader.get(), &ImageReader::imageChanged, this, [label](const QImage &img)
+            { label->setPixmap(QPixmap::fromImage(img).scaled(
+                  label->size(),
+                  Qt::KeepAspectRatio,
+                  Qt::SmoothTransformation)); }, Qt::QueuedConnection);
+}
+
+void MainWindow::createNumericWidget(const std::string &topic_name)
+{
+    auto numWidget = new MovableNumericWidget(QString::fromStdString(topic_name), floatingArea);
+    numWidget->setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
+    numWidget->setGeometry(50, 50, 360, 250);
+    numWidget->show();
+
+    auto numReader = std::make_shared<NumberReader>(topic_name);
+    ros_threads.push_back(std::make_shared<RosExecutorThread>(numReader));
+    ros_threads.back()->start();
+
+    connect(numReader.get(), &NumberReader::newNumber, numWidget,
+            &MovableNumericWidget::addDataPoint, Qt::QueuedConnection);
+}
+
+void MainWindow::createLogWidget(const std::string &topic_name)
+{
+    auto logWidget = new MovableLogWidget("ROS Log", floatingArea);
+    logWidget->setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
+    logWidget->setGeometry(50, 50, 400, 300);
+    logWidget->show();
+
+    // ROS log reader
+    auto logReader = std::make_shared<LogReader>(topic_name);
+    ros_threads.push_back(std::make_shared<RosExecutorThread>(logReader));
+    ros_threads.back()->start();
+
+    // Connect signal to widget (thread-safe)
+    connect(logReader.get(), &LogReader::newLogMessage,
+            logWidget, &MovableLogWidget::appendLogMessage,
+            Qt::QueuedConnection);
 }
 
 MainWindow::~MainWindow()
