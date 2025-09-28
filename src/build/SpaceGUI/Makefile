@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cameron/SpaceGUI/src/SpaceGUI
+CMAKE_SOURCE_DIR = /home/swara23/SpaceGUI/src/SpaceGUI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cameron/SpaceGUI/src/build/SpaceGUI
+CMAKE_BINARY_DIR = /home/swara23/SpaceGUI/src/build/SpaceGUI
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles /home/cameron/SpaceGUI/src/build/SpaceGUI//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles /home/swara23/SpaceGUI/src/build/SpaceGUI//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -271,6 +271,30 @@ src/AstroGUI.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.s
 .PHONY : src/AstroGUI.cpp.s
 
+src/autonomywindow.o: src/autonomywindow.cpp.o
+.PHONY : src/autonomywindow.o
+
+# target to build an object file
+src/autonomywindow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/src/autonomywindow.cpp.o
+.PHONY : src/autonomywindow.cpp.o
+
+src/autonomywindow.i: src/autonomywindow.cpp.i
+.PHONY : src/autonomywindow.i
+
+# target to preprocess a source file
+src/autonomywindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/src/autonomywindow.cpp.i
+.PHONY : src/autonomywindow.cpp.i
+
+src/autonomywindow.s: src/autonomywindow.cpp.s
+.PHONY : src/autonomywindow.s
+
+# target to generate assembly for a file
+src/autonomywindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/src/autonomywindow.cpp.s
+.PHONY : src/autonomywindow.cpp.s
+
 src/mainwindow.o: src/mainwindow.cpp.o
 .PHONY : src/mainwindow.o
 
@@ -318,6 +342,9 @@ help:
 	@echo "... src/AstroGUI.o"
 	@echo "... src/AstroGUI.i"
 	@echo "... src/AstroGUI.s"
+	@echo "... src/autonomywindow.o"
+	@echo "... src/autonomywindow.i"
+	@echo "... src/autonomywindow.s"
 	@echo "... src/mainwindow.o"
 	@echo "... src/mainwindow.i"
 	@echo "... src/mainwindow.s"

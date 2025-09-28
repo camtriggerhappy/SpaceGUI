@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cameron/SpaceGUI/src/SpaceGUI
+CMAKE_SOURCE_DIR = /home/swara23/SpaceGUI/src/SpaceGUI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cameron/SpaceGUI/src/build/SpaceGUI
+CMAKE_BINARY_DIR = /home/swara23/SpaceGUI/src/build/SpaceGUI
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/cameron/SpaceGUI/src/build/SpaceGUI && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cameron/SpaceGUI/src/SpaceGUI /home/cameron/SpaceGUI/src/SpaceGUI /home/cameron/SpaceGUI/src/build/SpaceGUI /home/cameron/SpaceGUI/src/build/SpaceGUI /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/swara23/SpaceGUI/src/build/SpaceGUI && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/swara23/SpaceGUI/src/SpaceGUI /home/swara23/SpaceGUI/src/SpaceGUI /home/swara23/SpaceGUI/src/build/SpaceGUI /home/swara23/SpaceGUI/src/build/SpaceGUI /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

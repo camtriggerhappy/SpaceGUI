@@ -1,6 +1,0 @@
-Invoking command in '/home/cameron/SpaceGUI/src/build/SpaceGUI': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/cameron/SpaceGUI/src/SpaceGUI -DCMAKE_INSTALL_PREFIX=/home/cameron/SpaceGUI/src/install/SpaceGUI
-Invoked command in '/home/cameron/SpaceGUI/src/build/SpaceGUI' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/cameron/SpaceGUI/src/SpaceGUI -DCMAKE_INSTALL_PREFIX=/home/cameron/SpaceGUI/src/install/SpaceGUI
-Invoking command in '/home/cameron/SpaceGUI/src/build/SpaceGUI': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cameron/SpaceGUI/src/build/SpaceGUI -- -j20 -l20
-Invoked command in '/home/cameron/SpaceGUI/src/build/SpaceGUI' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cameron/SpaceGUI/src/build/SpaceGUI -- -j20 -l20
-Invoking command in '/home/cameron/SpaceGUI/src/build/SpaceGUI': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cameron/SpaceGUI/src/build/SpaceGUI
-Invoked command in '/home/cameron/SpaceGUI/src/build/SpaceGUI' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cameron/SpaceGUI/src/build/SpaceGUI

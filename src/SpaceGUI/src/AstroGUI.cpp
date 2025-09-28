@@ -1,7 +1,9 @@
 #include <cstdio>
 #include <QtWidgets>
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "autonomywindow.h"
+//#include "ui_autonomywindow.h"
+// #include "mainwindow.h"
+// #include "ui_mainwindow.h"
 
 int main(int argc, char ** argv)
 {
@@ -24,11 +26,11 @@ int main(int argc, char ** argv)
 
 
     QWidget window;
-    MainWindow w;    
+    AUTONOMYWindow w;    
     
-    w.show_robot_status();
+     //w.show_robot_status();
 
-    w.show();
+    w.show(); 
 
     return app.exec();
  

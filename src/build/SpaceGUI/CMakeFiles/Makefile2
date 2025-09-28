@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cameron/SpaceGUI/src/SpaceGUI
+CMAKE_SOURCE_DIR = /home/swara23/SpaceGUI/src/SpaceGUI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cameron/SpaceGUI/src/build/SpaceGUI
+CMAKE_BINARY_DIR = /home/swara23/SpaceGUI/src/build/SpaceGUI
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -84,14 +84,14 @@ clean: CMakeFiles/AstroGUI_autogen.dir/clean
 CMakeFiles/uninstall.dir/all: CMakeFiles/SpaceGUI_uninstall.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num= "Built target uninstall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num= "Built target uninstall"
 .PHONY : CMakeFiles/uninstall.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
 .PHONY : CMakeFiles/uninstall.dir/rule
 
 # Convenience name for target.
@@ -110,14 +110,14 @@ CMakeFiles/uninstall.dir/clean:
 CMakeFiles/SpaceGUI_uninstall.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceGUI_uninstall.dir/build.make CMakeFiles/SpaceGUI_uninstall.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SpaceGUI_uninstall.dir/build.make CMakeFiles/SpaceGUI_uninstall.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num= "Built target SpaceGUI_uninstall"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num= "Built target SpaceGUI_uninstall"
 .PHONY : CMakeFiles/SpaceGUI_uninstall.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SpaceGUI_uninstall.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SpaceGUI_uninstall.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
 .PHONY : CMakeFiles/SpaceGUI_uninstall.dir/rule
 
 # Convenience name for target.
@@ -136,14 +136,14 @@ CMakeFiles/SpaceGUI_uninstall.dir/clean:
 CMakeFiles/AstroGUI.dir/all: CMakeFiles/AstroGUI_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI.dir/build.make CMakeFiles/AstroGUI.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=1,2,3,4 "Built target AstroGUI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=1,2,3,4,5 "Built target AstroGUI"
 .PHONY : CMakeFiles/AstroGUI.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/AstroGUI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/AstroGUI.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
 .PHONY : CMakeFiles/AstroGUI.dir/rule
 
 # Convenience name for target.
@@ -162,14 +162,14 @@ CMakeFiles/AstroGUI.dir/clean:
 CMakeFiles/AstroGUI_autogen.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI_autogen.dir/build.make CMakeFiles/AstroGUI_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AstroGUI_autogen.dir/build.make CMakeFiles/AstroGUI_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=5 "Built target AstroGUI_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles --progress-num=6 "Built target AstroGUI_autogen"
 .PHONY : CMakeFiles/AstroGUI_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/AstroGUI_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/AstroGUI_autogen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cameron/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/swara23/SpaceGUI/src/build/SpaceGUI/CMakeFiles 0
 .PHONY : CMakeFiles/AstroGUI_autogen.dir/rule
 
 # Convenience name for target.

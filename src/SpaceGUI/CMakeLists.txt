@@ -20,7 +20,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui)
 
-add_executable(AstroGUI src/AstroGUI.cpp)
+add_executable(AstroGUI src/autonomywindow.cpp src/AstroGUI.cpp)
 
 
 target_include_directories(AstroGUI PUBLIC
@@ -37,6 +37,7 @@ target_sources(AstroGUI PRIVATE
   src/AstroGUI.cpp
   src/mainwindow.ui
   src/mainwindow.cpp
+  src/autonomywindow.cpp
 )
 
 install(TARGETS AstroGUI

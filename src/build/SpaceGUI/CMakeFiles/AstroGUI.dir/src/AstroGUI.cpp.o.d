@@ -1,5 +1,5 @@
 CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o: \
- /home/cameron/SpaceGUI/src/SpaceGUI/src/AstroGUI.cpp \
+ /home/swara23/SpaceGUI/src/SpaceGUI/src/AstroGUI.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/cstdio \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -1020,12 +1020,10 @@ CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidgetaction.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwizard.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsversion.h \
- /home/cameron/SpaceGUI/src/SpaceGUI/src/mainwindow.h \
+ /home/swara23/SpaceGUI/src/SpaceGUI/src/autonomywindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
- /home/cameron/SpaceGUI/src/build/SpaceGUI/AstroGUI_autogen/include/ui_mainwindow.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMenuBar \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStatusBar \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QTextEdit \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGridLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QResizeEvent

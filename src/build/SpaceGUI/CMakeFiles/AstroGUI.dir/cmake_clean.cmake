@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/AstroGUI.dir/AstroGUI_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o"
   "CMakeFiles/AstroGUI.dir/src/AstroGUI.cpp.o.d"
+  "CMakeFiles/AstroGUI.dir/src/autonomywindow.cpp.o"
+  "CMakeFiles/AstroGUI.dir/src/autonomywindow.cpp.o.d"
   "CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o"
   "CMakeFiles/AstroGUI.dir/src/mainwindow.cpp.o.d"
 )

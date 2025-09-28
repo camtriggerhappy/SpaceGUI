@@ -1,8 +1,8 @@
-# Install script for directory: /home/cameron/SpaceGUI/src/SpaceGUI
+# Install script for directory: /home/swara23/SpaceGUI/src/SpaceGUI
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cameron/SpaceGUI/src/install/SpaceGUI")
+  set(CMAKE_INSTALL_PREFIX "/home/swara23/SpaceGUI/src/install/SpaceGUI")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,7 +49,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/SpaceGUI/AstroGUI"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/SpaceGUI" TYPE EXECUTABLE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/AstroGUI")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/SpaceGUI" TYPE EXECUTABLE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/AstroGUI")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/SpaceGUI/AstroGUI" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/SpaceGUI/AstroGUI")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -59,11 +59,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/SpaceGUI")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/SpaceGUI")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/SpaceGUI")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/SpaceGUI")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -71,7 +71,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI/environment" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI/environment" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -79,42 +79,42 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI/environment" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI/environment" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_index/share/ament_index/resource_index/packages/SpaceGUI")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_index/share/ament_index/resource_index/packages/SpaceGUI")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI/cmake" TYPE FILE FILES
-    "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_core/SpaceGUIConfig.cmake"
-    "/home/cameron/SpaceGUI/src/build/SpaceGUI/ament_cmake_core/SpaceGUIConfig-version.cmake"
+    "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_core/SpaceGUIConfig.cmake"
+    "/home/swara23/SpaceGUI/src/build/SpaceGUI/ament_cmake_core/SpaceGUIConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/cameron/SpaceGUI/src/SpaceGUI/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/SpaceGUI" TYPE FILE FILES "/home/swara23/SpaceGUI/src/SpaceGUI/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -125,5 +125,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/cameron/SpaceGUI/src/build/SpaceGUI/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/swara23/SpaceGUI/src/build/SpaceGUI/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
