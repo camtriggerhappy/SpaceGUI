@@ -2,25 +2,19 @@
 #include <QtWidgets>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "visualizer_factory.hpp"
-#include "image_visualizer.hpp"
-#include "autonomywindow.h"
-//#include "ui_autonomywindow.h"
-// #include "mainwindow.h"
-// #include "ui_mainwindow.h"
 
 int main(int argc, char ** argv)
 {
     rclcpp::init(argc, argv);
     QApplication app(argc, argv);
+    auto node = std::make_shared<rclcpp::Node>("gui_node");
 
+    rclcpp::executors::MultiThreadedExecutor executor;
+    executor.add_node(node);
+    std::thread spin_thread([&executor](){
+        executor.spin();
+    });
 
-// register_visualizers.cpp (or in main.cpp init)
-
-    VisualizerFactory::instance().registerCreator("sensor_msgs/msg/Image",
-        [](QWidget* parent) -> VisualizerBase* {
-            return new ImageVisualizer(parent);
-        });
 
 
 // call register_visualizers() once at startup before creating any visualizer
@@ -51,8 +45,15 @@ int main(int argc, char ** argv)
 
     w.show(); 
 
-    return app.exec();
+    int ret = app.exec();
+
+    // Shutdown executor
+    executor.cancel();
+    if (spin_thread.joinable())
+        spin_thread.join();
 
     rclcpp::shutdown();
- 
+
+    return ret;
+
 }

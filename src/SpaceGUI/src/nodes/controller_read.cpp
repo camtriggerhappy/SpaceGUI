@@ -1,4 +1,4 @@
-#include "controller_read.hpp"
+#include "SpaceGUI/controller_read.hpp"
 #include <string>
 using std::placeholders::_1;
 
@@ -36,3 +36,4 @@ void JoystickReader::timer_callback()
 }
 
 
+#include "moc_controller_read.cpp"
