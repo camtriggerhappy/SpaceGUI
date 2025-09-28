@@ -3,6 +3,9 @@
 #include <rclcpp/rclcpp.hpp>
 #include "sensor_msgs/msg/image.hpp"
 #include "image_read.hpp"
+#include "SpaceGUI/moveable_widget.hpp"
+#include "SpaceGUI/moveable_numeric_widget.hpp"
+#include "SpaceGUI/number_read.hpp"
 
 #include <QMenu>
 #include <QLabel>
@@ -118,8 +121,8 @@ void MainWindow::add_topic_list_to_menu(
                 {
                     if (topic.second == "sensor_msgs/msg/Image")
                     {
-                        QWidget *imageWidget = new QWidget(floatingArea);
-                        imageWidget->setWindowFlags(Qt::Tool); // optional: makes it floating
+                        MovableWidget *imageWidget = new MovableWidget(floatingArea);
+                        imageWidget->setWindowFlags(Qt::Widget); // optional: makes it floating
                         QVBoxLayout *layout = new QVBoxLayout(imageWidget);
                         QLabel *label = new QLabel(imageWidget);
                         label->setMinimumSize(320, 240); // initial size
@@ -137,6 +140,26 @@ void MainWindow::add_topic_list_to_menu(
                                                                     Qt::SmoothTransformation));
                 },
                 Qt::QueuedConnection);  // thread-safe
+
+                    } 
+                    else if(topic.second == "std_msgs/msg/Float64") {
+
+
+                            auto numWidget = new MovableNumericWidget(QString::fromStdString(topic.first), floatingArea);
+    numWidget->setWindowFlags(Qt::Tool | Qt::FramelessWindowHint); // optional: floating and frameless
+    numWidget->setGeometry(50, 50, 360, 250);
+    numWidget->show();
+
+
+    // Create the ROS numeric reader
+    auto num_vis = std::make_shared<NumberReader>(topic.first);
+    ros_threads.push_back(std::make_shared<RosExecutorThread>(num_vis));
+    ros_threads.back()->start();
+
+    // Connect ROS signal to widget
+    connect(num_vis.get(), &NumberReader::newNumber, numWidget, &MovableNumericWidget::addDataPoint, Qt::QueuedConnection);
+    
+                        
 
                     } });
     }
