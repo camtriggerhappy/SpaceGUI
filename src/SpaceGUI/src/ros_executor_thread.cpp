@@ -1,4 +1,4 @@
-#include "ros_executor_thread.hpp"
+#include "SpaceGUI/ros_executor_thread.hpp"
 
 #include "rclcpp/rclcpp.hpp"
 RosExecutorThread::RosExecutorThread(std::shared_ptr<rclcpp::Node> node)
