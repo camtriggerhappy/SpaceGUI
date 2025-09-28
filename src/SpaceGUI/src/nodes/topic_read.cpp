@@ -1,4 +1,4 @@
-#include "topic_read.hpp"
+#include "SpaceGUI/topic_read.hpp"
 
 TopicReader::TopicReader(QObject* parent)
 : QObject(parent), Node("gui_topic_read")

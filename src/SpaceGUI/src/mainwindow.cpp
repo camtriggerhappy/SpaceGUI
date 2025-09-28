@@ -1,12 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "visualizer_base.hpp"
-#include "visualizer_factory.hpp"
-#include "visualizer_template.hpp"
+#include <rclcpp/rclcpp.hpp>
 #include "sensor_msgs/msg/image.hpp"
-#include "image_visualizer.hpp"
+#include "image_read.hpp"
 
 #include <QMenu>
+#include <QLabel>
+#include <QVBoxLayout>
 #include <QAction>
 #include <QMessageBox>
 #include <QDebug>
@@ -29,11 +29,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
 
     // Size and position the floatingArea to match centralWidget
     ui->centralwidget->installEventFilter(this);
-
-    gui_node_ = std::make_shared<rclcpp::Node>("gui_node");
-    ros_thread_ = std::make_unique<RosExecutorThread>(gui_node_);
-    ros_thread_->start();
-
 
     QWidget *dbg = new QWidget(floatingArea);
     dbg->setStyleSheet("background: rgba(255,0,0,0.25); border: 1px solid red;");
@@ -121,23 +116,29 @@ void MainWindow::add_topic_list_to_menu(
         // Create a widget when this action is triggered
         connect(action, &QAction::triggered, this, [this, topic]()
                 {
-    RosDataWidget *container = new RosDataWidget(QString::fromStdString(topic.first), floatingArea);
+                    if (topic.second == "sensor_msgs/msg/Image")
+                    {
+                        QWidget *imageWidget = new QWidget(floatingArea);
+                        imageWidget->setWindowFlags(Qt::Tool); // optional: makes it floating
+                        QVBoxLayout *layout = new QVBoxLayout(imageWidget);
+                        QLabel *label = new QLabel(imageWidget);
+                        label->setMinimumSize(320, 240); // initial size
+                        layout->addWidget(label);
+                        imageWidget->setLayout(layout);
+                        imageWidget->show();
 
-    if (QString::fromStdString(topic.second).contains("Image")) {
+                        auto image_vis = std::make_shared<ImageReader>(topic.first);
+                        ros_threads.push_back(std::make_shared<RosExecutorThread>(image_vis));
+                        ros_threads.back()->start();
+                        connect(image_vis.get(), &ImageReader::imageChanged, this,
+                [label](const QImage &img) {
+                    label->setPixmap(QPixmap::fromImage(img).scaled(label->size(),
+                                                                    Qt::KeepAspectRatio,
+                                                                    Qt::SmoothTransformation));
+                },
+                Qt::QueuedConnection);  // thread-safe
 
-        ImageVisualizer *visualizer = new ImageVisualizer(container);
-        visualizer->subscribe(gui_node_, topic.first);
-        container->setContent(visualizer);
-
-    } else {
-        QLabel *label = new QLabel("Unsupported type: " + QString::fromStdString(topic.second));
-        label->setAlignment(Qt::AlignCenter);
-        container->setContent(label);
-    }
-
-    container->move(50, 50);
-    container->show();
-    ros_widgets.push_back(container); });
+                    } });
     }
 }
 
@@ -145,3 +146,5 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+#include "moc_mainwindow.cpp"

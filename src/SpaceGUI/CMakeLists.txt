@@ -21,14 +21,12 @@ add_executable(AstroGUI
   src/ros_executor_thread.cpp
   src/mainwindow.ui
   src/nodes/topic_read.cpp
-  src/ros_data_widget.cpp
-  src/image_visualizer.cpp
-  src/visualizer_base.cpp
-  
+  src/nodes/image_read.cpp
 )
 
 target_include_directories(AstroGUI PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/SpaceGUI>
   $<INSTALL_INTERFACE:include>
 )
 
