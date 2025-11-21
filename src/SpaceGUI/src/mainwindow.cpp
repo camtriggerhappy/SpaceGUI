@@ -143,7 +143,7 @@ void MainWindow::createImageWidget(const std::string &topic_name)
 
     auto layout = new QVBoxLayout(imageWidget);
     auto label = new QLabel(imageWidget);
-    label->setMinimumSize(320, 240);
+    label->setMinimumSize(800, 600);
     layout->addWidget(label);
     imageWidget->setLayout(layout);
     imageWidget->show();
